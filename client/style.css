@@ -452,6 +452,9 @@ form img:hover {
   #menu-btn 
   {
     display: initial;
+    position: fixed;
+    top: 5px;
+    left: 5px;
   }
 
   #chat_container {
@@ -494,6 +497,6 @@ form img:hover {
   }
   .chat 
   {
-    padding: 1rem 3rem;
+    padding: 1rem 4rem;
   }
 }
