@@ -473,7 +473,7 @@ form img:hover {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 450px) {
   html{
     font-size: 58.5%;
   }
@@ -491,5 +491,9 @@ form img:hover {
     bottom: 5.5rem;
     left: 50px;
     display: none;
+  }
+  .chat 
+  {
+    padding: 1rem 3rem;
   }
 }
