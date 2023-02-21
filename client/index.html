@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI cohort</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./css/all.min.css">
-    <link rel="stylesheet" href="./css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   </head>
   <body>
     
@@ -18,9 +17,11 @@
           <h3>AI Cohort</h3>
           <p>Your creative companion</p>
         </div>
+        
         <nav class="navbar">
-          <button onclick="location.reload()">reset</button>
-          <a href="https://ai-cohort-faq.netlify.app/" target="_blank">FAQ</a>
+          <button onclick="location.reload()"><i class="fas fa-repeat"></i> Reload</button>
+          <a href="https://ai-cohort-answers.netlify.app/" target="_blank"><i class="fa-sharp fa-solid fa-circle-info"></i>
+             FAQ</a>
         </nav>
         <div id="theme-toggler" class="fas fa-moon"></div>
       </div>
@@ -29,7 +30,6 @@
       <!-- header section  -->
 
       <!-- chat section  -->
-      <div class="text"><p>Be creative</p></div>
     <div id="app">
       
       <div id="chat_container">
@@ -41,7 +41,9 @@
         <textarea name="prompt" rows="1" cols="1" placeholder="What do you have in mind..." id="convert_text"></textarea>
         <button type="submit" id="send"><img src="./assets/send.png" alt="send" />
       </form>
+      
       <button id="click_to_convert"><img src="./assets/mike.png" alt="speak"></button>
+      <p class="last-mess">This build is not able to remember anything you have previously said and cannot respond to further questions based on your earlier inquiries.</p>
 
     </div>
 
@@ -50,5 +52,6 @@
 
     <script type="module" src="script.js"></script>
     <script type="module" src="speach.js"></script>
+
   </body>
 </html>

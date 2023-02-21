@@ -1,13 +1,13 @@
 import bot from './assets/favicon.png'
 import user from './assets/user3.png'
-import copy from './assets/copy2.png'
-import edit from './assets/scroll.png'
 
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 let menu = document.querySelector('#menu-btn')
 let header = document.querySelector('.header')
 let themeToggle = document.querySelector('#theme-toggler')
+
+
 
 menu.addEventListener('click', () => {
     menu.classList.toggle('fa-times')
@@ -32,13 +32,13 @@ function loader(element) {
 
     loadInterval = setInterval(() => {
         // Update the text content of the loading indicator
-        element.textContent += '#';
+        element.textContent += '█';
 
         // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '##') {
+        if (element.textContent === '██') {
             element.textContent = '';
         }
-    }, 300);
+    }, 400);
 }
 
 function typeText(element, text) {
@@ -51,7 +51,7 @@ function typeText(element, text) {
         } else {
             clearInterval(interval)
         }
-    }, 20)
+    }, 1)
 }
 
 // generate unique ID for each message div of bot
@@ -104,7 +104,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://ai-cohort.onrender.com', {
+    const response = await fetch('http://localhost:5000', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
