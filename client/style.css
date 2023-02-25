@@ -174,7 +174,6 @@ body.active
   position: fixed;
   z-index: 1001;
   top: 1.5rem;
-  left: 2rem;
   height: 5rem;
   width: 5rem;
   line-height: 5rem;
@@ -242,9 +241,11 @@ body.active
   display: flex;
   flex-direction: column;
   gap: 10px;
-  scroll-behavior: smooth;
   width: 100%;
   margin-bottom: 20rem;
+  overflow-y: auto;
+  height: 70vh;
+  scroll-behavior: smooth;  
 }
 .chat {
   width: 100%;
@@ -262,11 +263,18 @@ body.active
 }
 
 .profile {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 2px;
+  background: orange;
+  margin-right: 10px;
+}
+
+.ai .profile {
+  background: lightseagreen;
 }
 
 .message {
@@ -283,7 +291,6 @@ body.active
   width: 80%;
   height: 80%;
   object-fit: contain;
-
 }
 
 form {
@@ -298,6 +305,7 @@ form {
   gap: 10px;
   border-radius: 5px;
   border: .5px solid var(--borderline);
+  box-shadow: #000 0px 500px 600px 600px;
 }
 
 textarea {
@@ -309,7 +317,6 @@ textarea {
   border: none;
   outline: none;
   resize: vertical;
-  
 }
 
 .wrapper {
@@ -374,11 +381,8 @@ form img:hover {
   font-weight: 100;
   bottom: .5rem;
   position: fixed;
-  background: #222;
-  padding: 3px;
   border-radius: 5px;
 }
-
 
 
 
@@ -452,9 +456,8 @@ form img:hover {
   #menu-btn 
   {
     display: initial;
-    position: fixed;
-    top: 5px;
-    left: 5px;
+    top: 4px;
+    right: 0px;
   }
 
   #chat_container {
@@ -466,7 +469,7 @@ form img:hover {
     display: none;
   }
   .chat {
-    padding: 1rem 8rem;
+    padding: 1rem 3rem;
   }
   #click_to_convert img
   {
@@ -476,7 +479,7 @@ form img:hover {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   html{
     font-size: 58.5%;
   }
@@ -486,7 +489,7 @@ form img:hover {
     border-right: 0;
   }
   form {
-    width: 430px;
+    width: 90%;
     margin-bottom: 3rem;
   }
   #click_to_convert img
@@ -494,9 +497,5 @@ form img:hover {
     bottom: 5.5rem;
     left: 50px;
     display: none;
-  }
-  .chat 
-  {
-    padding: 1rem 4rem;
   }
 }

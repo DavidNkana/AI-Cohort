@@ -1,5 +1,5 @@
 import bot from './assets/favicon.png'
-import user from './assets/user3.png'
+import user from './assets/user4.png'
 
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
@@ -125,9 +125,10 @@ const handleSubmit = async (e) => {
     } else {
         const err = await response.text()
 
-        messageDiv.innerHTML = "Something went wrong"
+        messageDiv.innerHTML = "There is an error in your question; there are too many words or the sentence is not clear. Please edit the sentence."
         alert(err)
     }
 }
 
 form.addEventListener('submit', handleSubmit)
+
