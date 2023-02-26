@@ -19,16 +19,18 @@
         </div>
         
         <nav class="navbar">
-          <button onclick="location.reload()"><i class="fas fa-repeat"></i> Reload</button>
+          <button class="reset"><i class="fas fa-repeat"></i> Reset</button>
           <a href="https://ai-cohort-answers.netlify.app/" target="_blank"><i class="fa-sharp fa-solid fa-circle-info"></i>
              FAQ</a>
         </nav>
         <div id="theme-toggler" class="fas fa-moon"></div>
       </div>
-
+      
       <div id="menu-btn" class="fas fa-bars"></div>
       <!-- header section  -->
-
+      <div class="reset-btn">
+        <i class="fas fa-repeat"></i>
+      </div>
       <!-- chat section  -->
     <div id="app">
       
@@ -39,10 +41,10 @@
       <form>
         
         <textarea name="prompt" rows="1" cols="1" placeholder="What do you have in mind..." id="convert_text"></textarea>
-        <button type="submit" id="send"><img src="./assets/send.png" alt="send" />
+        <button type="submit" id="send"><img src="./assets/sender.png" alt="send" />
       </form>
       
-      <button id="click_to_convert"><img src="./assets/mike.png" alt="speak"></button>
+      <button id="click_to_convert"><img src="./assets/mike2.png" alt="speak"></button>
       <p class="last-mess">This build is not able to remember anything you have previously said and cannot respond to further questions based on your earlier inquiries.</p>
 
     </div>

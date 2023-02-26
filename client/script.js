@@ -1,10 +1,12 @@
-import bot from './assets/favicon.png'
-import user from './assets/user4.png'
+import bot from './assets/AI.png'
+import user from './assets/usermain.png'
 
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 let menu = document.querySelector('#menu-btn')
 let header = document.querySelector('.header')
+let reset = document.querySelector('.reset')
+let resetbtn = document.querySelector('.reset-btn')
 let themeToggle = document.querySelector('#theme-toggler')
 
 
@@ -25,6 +27,8 @@ themeToggle.addEventListener('click', () => {
     }
 })
 
+
+
 let loadInterval
 
 function loader(element) {
@@ -32,14 +36,17 @@ function loader(element) {
 
     loadInterval = setInterval(() => {
         // Update the text content of the loading indicator
-        element.textContent += '█';
+        element.textContent += '▌';
 
         // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '██') {
+        if (element.textContent === '▌▌') {
             element.textContent = '';
         }
     }, 400);
 }
+
+
+
 
 function typeText(element, text) {
     let index = 0
@@ -51,7 +58,7 @@ function typeText(element, text) {
         } else {
             clearInterval(interval)
         }
-    }, 1)
+    }, .5)
 }
 
 // generate unique ID for each message div of bot
@@ -83,6 +90,7 @@ function chatStripe(isAi, value, uniqueId) {
     )
 }
 
+
 const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -93,6 +101,7 @@ const handleSubmit = async (e) => {
 
     // to clear the textarea input 
     form.reset()
+    
 
     // bot's chatstripe
     const uniqueId = generateUniqueId()
@@ -125,10 +134,23 @@ const handleSubmit = async (e) => {
     } else {
         const err = await response.text()
 
-        messageDiv.innerHTML = "There is an error in your question; there are too many words or the sentence is not clear. Please edit the sentence."
+        messageDiv.innerHTML = "There is an error in your question; there are too many words."
         alert(err)
     }
 }
 
+reset.addEventListener('click', () => {
+    chatContainer.innerHTML = ''
+})
+resetbtn.addEventListener('click', () => {
+    chatContainer.innerHTML = ''
+})
+
 form.addEventListener('submit', handleSubmit)
+
+form.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13) {
+        handleSubmit(e)
+    }
+})
 

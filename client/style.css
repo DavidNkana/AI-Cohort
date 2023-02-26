@@ -3,10 +3,9 @@
 :root 
 {
   --green: #88f3b1;
-  
   --black: #fff;
   --light-color: #ddd;
-  --bg-color: #222;
+  --bg-color: #141414;
   --border: .1rem solid rgba(0,0,0,.4);
   --box-shadow: .4rem .4rem 1rem #111, 
                 -.4rem -.4rem 1rem #333;
@@ -14,11 +13,11 @@
                 -.4rem -.4rem 1rem #333 inset;
   --ai-bg: #40414F;  
   --form: #40414F; 
-  --app: #2e2e35;   
+  --app: #33333d;   
   --borderline: #222;   
   --text-color: #dcdcdc;  
   --text-color-2: #6b6b6b;  
-  --button-hover: #cfcfcf;
+  --button-hover: #202123;
   --menu-btn: #fff;  
 }
 
@@ -108,7 +107,7 @@ body.active
 
 .header .logo p
 {
-  color: var(--green);
+  color: #00ffcd;
   font-size: 1.2rem;
 }
 
@@ -120,22 +119,18 @@ body.active
 .header .navbar a
 {
   margin: 1.7rem auto;
-  padding: 1rem 9rem;
-  font-size: 1.5rem;
+  padding: 1rem 8.5rem;
+  font-size: 1.4rem;
   border-radius: 5px;
   color: var(--black);
   background: var(--bg-color);
-}
-.header .navbar a:hover
-{
-  color: var(--green);
+  border: .1px solid #4d4d4f;
 }
 
 .header .navbar a:hover 
 {
-  background: #999;
-  opacity: 50%;
-  color: var(--green);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--black);
 }
 .header .navbar button
 {
@@ -143,11 +138,11 @@ body.active
   margin: 1.7rem auto;
   padding: 1rem 8rem;
   border-radius: 5px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--black);
   cursor: pointer;
   background: var(--bg-color);
-  text-align: center;
+  border: .1px solid #4d4d4f;
 }
 
 .header .navbar button i 
@@ -162,9 +157,8 @@ body.active
 
 .header .navbar button:hover 
 {
-  background: #999;
-  opacity: 50%;
-  color: var(--green);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--black);
 }
 
 
@@ -185,31 +179,28 @@ body.active
   display: none;
 }
 
-#menu-btn:hover 
-{
-  color: var(--green);
-}
-
 #theme-toggler
 {
   position: fixed;
   z-index: 1001;
-  bottom: 1.5rem;
+  bottom: 1.4rem;
   left: 2rem;
   height: 5rem;
   width: 5rem;
   line-height: 5rem;
   border-radius: 50%;
-  font-size: 2rem;
+  font-size: 1.4rem;
   cursor: pointer;
   text-align: center;
   color: var(--black);
+  border: .5px solid #6b6b6b;
 }
 
 
 #theme-toggler:hover
 {
-  color: var(--green);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--black);
 }
 
 .text 
@@ -254,12 +245,12 @@ body.active
   flex-direction: row;
   align-items: flex-start;
   gap: 10px;
-  padding: 2rem 15rem;
+  padding: 2rem 17rem;
 }
 
 .ai {
   background: var(--ai-bg);
-  border: .5px solid var(--borderline);
+  border-top: .5px solid var(--borderline);
 }
 
 .profile {
@@ -274,7 +265,7 @@ body.active
 }
 
 .ai .profile {
-  background: lightseagreen;
+  background: #10a37f;
 }
 
 .message {
@@ -348,7 +339,7 @@ form img {
   width: 25px;
   height: 25px;
   margin-right: 1rem;
-  padding: .3rem;
+  padding: .4rem;
   border-radius: 5px;
 }
 form img:hover {
@@ -376,18 +367,20 @@ form img:hover {
 .last-mess
 {
   text-align: center;
-  color: var(--text-color-2);
+  color: #9a9b9a;
   font-size: 1.3rem;
   font-weight: 100;
   bottom: .5rem;
   position: fixed;
+  padding: .5rem;
   border-radius: 5px;
 }
 
 
-
-
-
+.reset-btn .fa-repeat
+  {
+    display:none;
+  }
 
 
 
@@ -456,12 +449,13 @@ form img:hover {
   #menu-btn 
   {
     display: initial;
-    top: 4px;
-    right: 0px;
+    top: 0px;
+    left: 0px;
   }
 
   #chat_container {
     width: 100%;
+    margin-top: 40px;
   }
 
   #theme-toggler
@@ -469,7 +463,7 @@ form img:hover {
     display: none;
   }
   .chat {
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
   }
   #click_to_convert img
   {
@@ -477,6 +471,28 @@ form img:hover {
     left: 110px;
     display: none;
   }
+
+  .reset-btn
+  {
+    position: fixed;
+    height: 40px;
+    width: 100%;
+    background: #202123;
+    border-bottom: .5px solid #5c5d6b;
+    align-items: center;
+  }
+
+  .reset-btn .fa-repeat
+  {
+    color: #fff;
+    position: fixed;
+    top: 15px;
+    right: 12px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    display: block;
+  }
+  
 }
 
 @media (max-width: 500px) {
