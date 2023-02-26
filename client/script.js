@@ -1,6 +1,7 @@
 import bot from './assets/AI.png'
 import user from './assets/usermain.png'
 // variables
+// variables
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 let menu = document.querySelector('#menu-btn')
