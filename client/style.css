@@ -455,7 +455,7 @@ form img:hover {
 
   #chat_container {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 45px;
   }
 
   #theme-toggler
@@ -475,7 +475,7 @@ form img:hover {
   .reset-btn
   {
     position: fixed;
-    height: 50px;
+    height: 45px;
     width: 100%;
     background: #202123;
     border-bottom: .5px solid #5c5d6b;
