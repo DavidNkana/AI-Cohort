@@ -134,7 +134,7 @@ const handleSubmit = async (e) => {
     } else {
         const err = await response.text()
 
-        messageDiv.innerHTML = "There is an error in your question; there are too many words."
+        messageDiv.innerHTML = "There is an error in your question. Try pasting or writing it section by section."
         alert(err)
     }
 }
