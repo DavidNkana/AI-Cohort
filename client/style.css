@@ -1,24 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Robotmo:wght@100&display=swap');
 
 :root 
 {
   --green: #88f3b1;
   --black: #fff;
   --light-color: #ddd;
-  --bg-color: #141414;
+  --bg-color: #101111;
   --border: .1rem solid rgba(0,0,0,.4);
   --box-shadow: .4rem .4rem 1rem #111, 
                 -.4rem -.4rem 1rem #333;
   --box-shadow-inset: .4rem .4rem 1rem #111 inset, 
                 -.4rem -.4rem 1rem #333 inset;
-  --ai-bg: #40414F;  
-  --form: #40414F; 
-  --app: #33333d;   
+  --ai-bg: #444654;  
+  --form: #40414f; 
+  --app: #343541;   
   --borderline: #222;   
   --text-color: #dcdcdc;  
   --text-color-2: #6b6b6b;  
   --button-hover: #202123;
-  --menu-btn: #fff;  
+  --menu-btn: #8b8b8b;  
+  --p-b: #3e3f4b;
 }
 
 html::-webkit-scrollbar {
@@ -61,7 +62,6 @@ html
 
 body 
 {
-  background: var(--bg-color);
   padding-left: 30rem;
 }
 body.active 
@@ -72,13 +72,14 @@ body.active
   --borderline: #adadad;   
   --text-color: hsl(0, 0%, 13%);                
   --menu-btn: #111;  
-  
+  --button-hover: #f7f7f8;
+  --p-b: #f7f7f8;
 }
 
 .header 
 {
   position: fixed;
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -245,7 +246,7 @@ body.active
   flex-direction: row;
   align-items: flex-start;
   gap: 10px;
-  padding: 2rem 17rem;
+  padding: 2rem 18rem;
 }
 
 .ai {
@@ -278,6 +279,19 @@ body.active
   white-space: pre-wrap;
 }
 
+.convo 
+{
+  color: var(--text-color);
+  margin: 30px 0;
+  font-size: 1.4rem;
+  color: #6080a0;
+  font-weight: lighter;
+  line-height: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
 .profile img {
   width: 80%;
   height: 80%;
@@ -289,13 +303,14 @@ form {
   bottom: 20px;
   width: 800px;
   margin-bottom: 1.5rem;
-  padding: 10px;
+  padding: 7px;
   background: var(--form);
   display: flex;
   flex-direction: row;
+  z-index: 2;
   gap: 10px;
   border-radius: 5px;
-  border: .5px solid var(--borderline);
+  border: 1px solid var(--borderline);
   box-shadow: #000 0px 500px 600px 600px;
 }
 
@@ -328,6 +343,11 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 5rem;
 }
 
+textarea::placeholder
+{
+  font-style: italic;
+}
+
 button {
   outline: 0;
   border: 0;
@@ -356,6 +376,7 @@ form img:hover {
   position: fixed;
   bottom: 5rem;
   left: 400px;
+  z-index: 2;
   padding: .3rem;
   border-radius: 5px;
 }
@@ -371,6 +392,7 @@ form img:hover {
   font-size: 1.3rem;
   font-weight: 100;
   bottom: .5rem;
+  z-index: 2;
   position: fixed;
   padding: .5rem;
   border-radius: 5px;
@@ -381,6 +403,48 @@ form img:hover {
   {
     display:none;
   }
+
+#starter
+{
+  position: absolute;
+  top: 2%;
+  margin: auto 20rem;
+}
+
+#starter .fa 
+{
+  color: var(--text-color);
+  font-size: 2rem;
+  line-height: 4rem;
+}
+#starter h1
+{
+  color: var(--text-color);
+  font-size: 4rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  font-weight: 100;
+}
+#starter h2
+{
+  color: var(--text-color);
+  font-size: 2rem;
+  padding-bottom: 1rem;
+  font-weight: 100;
+}
+#starter p
+{
+  color: var(--text-color);
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+.paragraphs 
+{
+  background-color: var(--p-b);
+  padding: 2rem;
+  border-radius: 10px;
+}
 
 
 
@@ -420,6 +484,13 @@ form img:hover {
   display: none;
 }
 
+#starter
+{
+  position: absolute;
+  top: 50px;
+  margin: auto 5rem;
+}
+
 }
 
 
@@ -455,7 +526,7 @@ form img:hover {
 
   #chat_container {
     width: 100%;
-    margin-top: 45px;
+    margin-top: 40px;
   }
 
   #theme-toggler
@@ -475,7 +546,7 @@ form img:hover {
   .reset-btn
   {
     position: fixed;
-    height: 45px;
+    height: 40px;
     width: 100%;
     background: #202123;
     border-bottom: .5px solid #5c5d6b;
@@ -484,13 +555,14 @@ form img:hover {
 
   .reset-btn .fa-repeat
   {
-    color: #fff;
+    color: #8b8b8b;
     position: fixed;
     top: 15px;
     right: 12px;
     font-size: 1.7rem;
     cursor: pointer;
     display: block;
+    z-index: 1000;
   }
   
 }
@@ -507,6 +579,7 @@ form img:hover {
   form {
     width: 90%;
     margin-bottom: 3rem;
+    padding: 5px;
   }
   #click_to_convert img
   {
@@ -514,4 +587,12 @@ form img:hover {
     left: 50px;
     display: none;
   }
+  .header .navbar button
+{
+  padding: 1rem 20rem;
+}
+  .header .navbar a
+{
+  padding: 1rem 20.5rem;
+}
 }

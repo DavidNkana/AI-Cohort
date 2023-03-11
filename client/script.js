@@ -8,6 +8,7 @@ let header = document.querySelector('.header')
 let reset = document.querySelector('.reset')
 let resetbtn = document.querySelector('.reset-btn')
 let themeToggle = document.querySelector('#theme-toggler')
+let del = document.querySelector('#starter')
 
 
 
@@ -95,9 +96,11 @@ const handleSubmit = async (e) => {
     e.preventDefault()
 
     const data = new FormData(form)
+    
 
     // user's chatstripe
     chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
+    
 
     // to clear the textarea input 
     form.reset()
@@ -106,14 +109,15 @@ const handleSubmit = async (e) => {
     // bot's chatstripe
     const uniqueId = generateUniqueId()
     chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+    del.innerHTML = '';
 
     // specific message div 
     const messageDiv = document.getElementById(uniqueId)
 
-    // messageDiv.innerHTML = "..."
+    // messageDiv.innerHTML = ""
     loader(messageDiv)
 
-    const response = await fetch('https://ai-cohort.onrender.com', {
+    const response = await fetch('http://localhost:5000', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -134,7 +138,7 @@ const handleSubmit = async (e) => {
     } else {
         const err = await response.text()
 
-        messageDiv.innerHTML = "There is an error in your question. Try pasting or writing it section by section."
+        messageDiv.innerHTML = "There is an error in your question; there are too many words."
         alert(err)
     }
 }
@@ -142,6 +146,7 @@ const handleSubmit = async (e) => {
 reset.addEventListener('click', () => {
     chatContainer.innerHTML = ''
 })
+
 resetbtn.addEventListener('click', () => {
     chatContainer.innerHTML = ''
 })
@@ -153,5 +158,3 @@ form.addEventListener('keyup', (e) => {
         handleSubmit(e)
     }
 })
-
-
