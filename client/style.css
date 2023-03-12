@@ -62,8 +62,7 @@ html
 
 body 
 {
-  background: var(--bg-color);
-  
+  background: #222;
   padding-left: 30rem;
 }
 body.active 
