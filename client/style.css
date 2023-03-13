@@ -62,8 +62,8 @@ html
 
 body 
 {
-  background: #222;
   padding-left: 30rem;
+  background: #222;
 }
 body.active 
 {
@@ -71,8 +71,7 @@ body.active
   --form: #ffffff; 
   --app: #ffffff;   
   --borderline: #adadad;   
-  --text-color: hsl(0, 0%, 13%);                
-  --menu-btn: #111;  
+  --text-color: hsl(0, 0%, 13%);     
   --button-hover: #f7f7f8;
   --p-b: #f7f7f8;
 }
@@ -121,7 +120,7 @@ body.active
 .header .navbar a
 {
   margin: 1.7rem auto;
-  padding: 1rem 8.5rem;
+  padding: 1rem 8rem;
   font-size: 1.4rem;
   border-radius: 5px;
   color: var(--black);
@@ -302,8 +301,7 @@ body.active
 form {
   position: fixed;
   bottom: 20px;
-  width: 800px;
-  margin-bottom: 1.5rem;
+  width: 58%;
   padding: 7px;
   background: var(--form);
   display: flex;
@@ -319,11 +317,12 @@ textarea {
   width: 100%;
   color: var(--text-color);
   font-size: 1.5rem;
-  padding: 10px;
+  padding: 7px;
   background: transparent;
   border: none;
   outline: none;
   resize: vertical;
+  overflow: auto;
 }
 
 .wrapper {
@@ -340,7 +339,7 @@ textarea::-webkit-scrollbar-track {
 }
 
 textarea::-webkit-scrollbar-thumb {
-  background: var(--green);
+  background: #7c7c7c;
   border-radius: 5rem;
 }
 
@@ -372,31 +371,26 @@ form img:hover {
 
 #click_to_convert img
 {
-  height: 25px;
-  width: 20px;
-  position: fixed;
-  bottom: 5rem;
-  left: 400px;
-  z-index: 2;
-  padding: .3rem;
-  border-radius: 5px;
+  height: 28px;
+  width: 23px;
+  cursor: pointer;
 }
 
 #click_to_convert img:hover {
   background: var(--button-hover);
 }
 
-.last-mess
+.last-mess 
 {
   text-align: center;
   color: #9a9b9a;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 100;
   bottom: .5rem;
   z-index: 2;
   position: fixed;
   padding: .5rem;
-  border-radius: 5px;
+  font-style: italic;
 }
 
 
@@ -447,6 +441,10 @@ form img:hover {
   border-radius: 10px;
 }
 
+.responsive 
+{
+  display: none;
+}
 
 
 
@@ -471,12 +469,22 @@ form img:hover {
 
 
 @media (max-width: 1050px) {
+  .responsive 
+{
+  color: #8b8b8b;
+  text-align: center;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  padding: 1rem 0;
+  font-size: 2.3rem;
+}
+
   .chat {
     padding: 2rem 4rem;
   }
   form {
-    width: 600px;
-    margin-bottom: 3rem;
+    width: 60%;
   }
   #click_to_convert img
 {
@@ -503,6 +511,10 @@ form img:hover {
   body 
   {
     padding-left: 0;
+  }
+
+  form {
+    width: 90%;
   }
 
   .header 
@@ -532,7 +544,7 @@ form img:hover {
 
   #theme-toggler
   {
-    display: none;
+    display:none;
   }
   .chat {
     padding: 1rem 2rem;
@@ -550,6 +562,7 @@ form img:hover {
     height: 40px;
     width: 100%;
     background: #202123;
+    z-index: 1000;
     border-bottom: .5px solid #5c5d6b;
     align-items: center;
   }
@@ -579,7 +592,6 @@ form img:hover {
   }
   form {
     width: 90%;
-    margin-bottom: 3rem;
     padding: 5px;
   }
   #click_to_convert img
@@ -594,6 +606,6 @@ form img:hover {
 }
   .header .navbar a
 {
-  padding: 1rem 10.5rem;
+  padding: 1rem 10rem;
 }
 }

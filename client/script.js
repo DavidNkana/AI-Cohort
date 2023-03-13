@@ -1,6 +1,10 @@
+
+// imports
 import bot from './assets/AI.png'
 import user from './assets/usermain.png'
+// imports
 
+// variables
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 let menu = document.querySelector('#menu-btn')
@@ -9,15 +13,45 @@ let reset = document.querySelector('.reset')
 let resetbtn = document.querySelector('.reset-btn')
 let themeToggle = document.querySelector('#theme-toggler')
 let del = document.querySelector('#starter')
+let speachbtn = document.querySelector('#click_to_convert');
+let convert_text = document.querySelector('#convert_text')
+// variables
 
+// speech recognition
+speachbtn.addEventListener('click', () => 
+{
+    var speech = true;
+    window.SpeechRecognition = window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.interimResults = true;
 
+    recognition.addEventListener('result', (e) => {
+        const transcript = Array.from(e.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
 
+        convert_text.innerHTML = transcript;
+        
+    })
+
+    if(speech == true) 
+    {
+        recognition.start();
+    }
+})
+// speech recognition
+
+// responsive hamburger menu 
 menu.addEventListener('click', () => {
     menu.classList.toggle('fa-times')
     header.classList.toggle('active')
 })
+// responsive hamburger menu 
+
+// theme change 
 themeToggle.addEventListener('click', () => {
     themeToggle.classList.toggle('fa-sun')
+    themeToggle.classList.toggle('fa-moon')
     if(themeToggle.classList.contains('fa-sun')) 
     {
         document.body.classList.add('active')
@@ -27,9 +61,10 @@ themeToggle.addEventListener('click', () => {
         document.body.classList.remove('active')
     }
 })
+// theme change 
 
 
-
+// loading while ai comes up with an answer
 let loadInterval
 
 function loader(element) {
@@ -45,10 +80,10 @@ function loader(element) {
         }
     }, 400);
 }
+// loading while ai comes up with an answer
 
 
-
-
+// makes ai write letter by letter
 function typeText(element, text) {
     let index = 0
 
@@ -60,10 +95,11 @@ function typeText(element, text) {
             clearInterval(interval)
         }
     }, .5)
-}
+}// necessary for typing text effect for that specific reply
+// makes ai write letter by letter
+
 
 // generate unique ID for each message div of bot
-// necessary for typing text effect for that specific reply
 // without unique ID, typing text will work on every element
 function generateUniqueId() {
     const timestamp = Date.now();
@@ -109,6 +145,8 @@ const handleSubmit = async (e) => {
     // bot's chatstripe
     const uniqueId = generateUniqueId()
     chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+
+    chatContainer.scrollTop = chatContainer.scrollHeight
     del.innerHTML = '';
 
     // specific message div 
@@ -138,7 +176,7 @@ const handleSubmit = async (e) => {
     } else {
         const err = await response.text()
 
-        messageDiv.innerHTML = "There is an error in your question; there are too many words."
+        messageDiv.innerHTML = "Oops! Something does not seem right here"
         alert(err)
     }
 }
@@ -158,3 +196,6 @@ form.addEventListener('keyup', (e) => {
         handleSubmit(e)
     }
 })
+
+
+// https://ai-cohort.onrender.com
