@@ -562,7 +562,7 @@ form img:hover {
     height: 40px;
     width: 100%;
     background: #202123;
-    z-index: 1000;
+    z-index: 500;
     border-bottom: .5px solid #5c5d6b;
     align-items: center;
   }
