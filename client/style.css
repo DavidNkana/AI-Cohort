@@ -271,7 +271,6 @@ body.active
 
 .message {
   flex: 1;
-
   color: var(--text-color);
   font-size: 1.5rem;
   line-height: 3rem;
@@ -302,11 +301,11 @@ form {
   position: fixed;
   bottom: 20px;
   width: 58%;
-  padding: 7px;
+  padding: 8px;
   background: var(--form);
   display: flex;
   flex-direction: row;
-  z-index: 2;
+  z-index: 900;
   gap: 10px;
   border-radius: 5px;
   border: 1px solid var(--borderline);

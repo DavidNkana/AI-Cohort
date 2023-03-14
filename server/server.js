@@ -25,15 +25,15 @@ app.post('/', async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `${prompt}`,
-      temperature: 1, // Higher values means the model will take more risks.
-      max_tokens: 4090, // The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
-      top_p: 1, // alternative to sampling with temperature, called nucleus sampling
-      frequency_penalty: 1.5, // Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
-      presence_penalty: 1, // Number between -2.0 and 2.0. Positive values penalize new tokens basezd on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
-    });
+    const response = await openai.createCompletion({ //This line initiates the creation of a completion using OpenAI. 
+      model: "text-davinci-003", //This specifies which OpenAI model to use (in this case, text-davinci-003). 
+      prompt: `${prompt}`, //This specifies what you are prompting the compleation with. 
+      temperature: 1, //This sets the risk level when generating a response to the prompt (higher values mean more risk). 
+      max_tokens: 3990, //This sets the maximum number of tokens for the completed response (most models have a context length of 2048 tokens).  
+      top_p: 1, //This is an alternate method to sampling with temperature and is called nucleus sampling. 
+      frequency_penalty: .5, //This penalizes new tokens based on their existing frequency in the text so far, decreasing its likelihood to repeat the same line verbatim. 
+      presence_penalty: .5, //This penalizes new tokens based on whether they appear in the text so far, increasing its likelihood to talk about new topics. 
+      }); 
 
     res.status(200).send({
       bot: response.data.choices[0].text

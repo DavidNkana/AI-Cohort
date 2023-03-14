@@ -1,7 +1,7 @@
 
 // imports
 import bot from './assets/AI.png'
-import user from './assets/usermain.png'
+import user from './assets/f-user.png'
 // imports
 
 // variables
@@ -190,12 +190,10 @@ resetbtn.addEventListener('click', () => {
 })
 
 form.addEventListener('submit', handleSubmit)
-
 form.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
         handleSubmit(e)
     }
 })
-
 
 // https://ai-cohort.onrender.com
