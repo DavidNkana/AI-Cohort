@@ -72,13 +72,13 @@ function loader(element) {
 
     loadInterval = setInterval(() => {
         // Update the text content of the loading indicator
-        element.textContent += '▌';
+        element.textContent += '█';
 
         // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '▌▌') {
+        if (element.textContent === '██') {
             element.textContent = '';
         }
-    }, 400);
+    }, 300);
 }
 // loading while ai comes up with an answer
 
@@ -155,7 +155,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = ""
     loader(messageDiv)
 
-    const response = await fetch('https://ai-cohort.onrender.com', {
+    const response = await fetch('http://localhost:5000', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -176,8 +176,7 @@ const handleSubmit = async (e) => {
     } else {
         const err = await response.text()
 
-        messageDiv.innerHTML = "Oops! Something does not seem right here"
-        alert(err)
+        messageDiv.innerHTML = `<p class="errorMessage">Oops! Something doesn't seem right here. Either your prompt is too long or your internet connection is the issue. Try prompting shorter texts or checking your internet connection!</p>`
     }
 }
 

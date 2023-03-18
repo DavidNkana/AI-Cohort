@@ -44,7 +44,7 @@ html::-webkit-scrollbar-thumb:hover {
 {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   box-sizing: border-box;
   outline: none;
   border: none;
@@ -103,6 +103,7 @@ body.active
 {
   color: var(--black);
   font-size: 2rem;
+  font-weight: 100;
   margin-bottom: .5rem;
 }
 
@@ -149,6 +150,7 @@ body.active
 .header .navbar button i 
 {
   margin-right: 1rem;
+  font-size: 1.4rem;
 }
 
 .header .navbar a i 
@@ -176,15 +178,13 @@ body.active
   font-size: 2rem;
   cursor: pointer;
   text-align: center;
-  color: var(--menu-btn);
+  color: #fff;
   display: none;
 }
 
 #theme-toggler
 {
-  position: fixed;
   z-index: 1001;
-  bottom: 1.4rem;
   left: 2rem;
   height: 5rem;
   width: 5rem;
@@ -192,6 +192,7 @@ body.active
   border-radius: 50%;
   font-size: 1.4rem;
   cursor: pointer;
+  margin-top: 9rem;
   text-align: center;
   color: var(--black);
   border: .5px solid #6b6b6b;
@@ -261,6 +262,7 @@ body.active
   justify-content: center;
   align-items: center;
   border-radius: 2px;
+  padding:2px;
   background: orange;
   margin-right: 10px;
 }
@@ -274,17 +276,16 @@ body.active
   color: var(--text-color);
   font-size: 1.5rem;
   line-height: 3rem;
+  font-family: Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   max-width: 100%;
   white-space: pre-wrap;
 }
 
 .convo 
 {
-  color: var(--text-color);
   margin: 30px 0;
   font-size: 1.4rem;
-  color: #6080a0;
-  font-weight: lighter;
+  color: #6f94b9;
   line-height: 2rem;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -368,14 +369,16 @@ form img:hover {
 
 
 
-#click_to_convert img
+#click_to_convert i
 {
-  height: 28px;
-  width: 23px;
+  font-size: 1.7rem;
   cursor: pointer;
+  color: #999;
+  padding: .8rem;
+  border-radius: 5px;
 }
 
-#click_to_convert img:hover {
+#click_to_convert i:hover {
   background: var(--button-hover);
 }
 
@@ -445,7 +448,13 @@ form img:hover {
   display: none;
 }
 
-
+.errorMessage 
+{
+  background: rgba(255, 0, 0, 0.171);
+  padding: 1rem;
+  border: 1px solid red;
+  border-radius: 5px;
+}
 
 
 
@@ -470,7 +479,7 @@ form img:hover {
 @media (max-width: 1050px) {
   .responsive 
 {
-  color: #8b8b8b;
+  color: #fff;
   text-align: center;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
@@ -485,10 +494,8 @@ form img:hover {
   form {
     width: 60%;
   }
-  #click_to_convert img
+  #click_to_convert i
 {
-  bottom: 4.5rem;
-  left: 320px;
   display: none;
 }
 
@@ -531,7 +538,7 @@ form img:hover {
 
   #menu-btn 
   {
-    display: initial;
+    display: block;
     top: 0px;
     left: 0px;
   }
@@ -541,17 +548,12 @@ form img:hover {
     margin-top: 40px;
   }
 
-  #theme-toggler
-  {
-    display:none;
-  }
+ 
   .chat {
     padding: 1rem 2rem;
   }
-  #click_to_convert img
+  #click_to_convert i
   {
-    bottom: 5rem;
-    left: 110px;
     display: none;
   }
 
@@ -568,7 +570,7 @@ form img:hover {
 
   .reset-btn .fa-repeat
   {
-    color: #8b8b8b;
+    color: #fff;
     position: fixed;
     top: 15px;
     right: 12px;
@@ -593,10 +595,8 @@ form img:hover {
     width: 90%;
     padding: 5px;
   }
-  #click_to_convert img
+  #click_to_convert i
   {
-    bottom: 5.5rem;
-    left: 50px;
     display: none;
   }
   .header .navbar button

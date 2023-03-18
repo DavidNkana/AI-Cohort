@@ -26,13 +26,14 @@ app.post('/', async (req, res) => {
     const prompt = req.body.prompt;
 
     const response = await openai.createCompletion({ //This line initiates the creation of a completion using OpenAI. 
-      model: "text-davinci-003", //This specifies which OpenAI model to use (in this case, text-davinci-003). 
-      prompt: `${prompt}`, //This specifies what you are prompting the compleation with. 
-      temperature: 1, //This sets the risk level when generating a response to the prompt (higher values mean more risk). 
-      max_tokens: 3990, //This sets the maximum number of tokens for the completed response (most models have a context length of 2048 tokens).  
-      top_p: 1, //This is an alternate method to sampling with temperature and is called nucleus sampling. 
-      frequency_penalty: .5, //This penalizes new tokens based on their existing frequency in the text so far, decreasing its likelihood to repeat the same line verbatim. 
-      presence_penalty: .5, //This penalizes new tokens based on whether they appear in the text so far, increasing its likelihood to talk about new topics. 
+      model: "text-davinci-003",
+      prompt: `${prompt}`,
+      temperature: 0.9,
+      max_tokens: 3583,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0.6,
+      stop: [" Human:", " AI:"],
       }); 
 
     res.status(200).send({
