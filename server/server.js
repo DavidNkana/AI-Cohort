@@ -31,7 +31,7 @@ app.post('/', async (req, res) => {
       temperature: 0.9,
       max_tokens: 3583,
       top_p: 1,
-      frequency_penalty: 0,
+      frequency_penalty: .5,
       presence_penalty: 0.6,
       stop: [" Human:", " AI:"],
       }); 
