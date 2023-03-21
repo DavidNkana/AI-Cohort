@@ -13,12 +13,23 @@ let reset = document.querySelector('.reset')
 let resetbtn = document.querySelector('.reset-btn')
 let themeToggle = document.querySelector('#theme-toggler')
 let del = document.querySelector('#starter')
-let speachbtn = document.querySelector('#click_to_convert');
+let speechbtn = document.querySelector('#click_to_convert');
 let convert_text = document.querySelector('#convert_text')
+
 // variables
 
+
+convert_text.addEventListener('keyup', e => {
+    convert_text.style.height = 'auto'
+
+    let scHeight = e.target.scrollHeight;
+
+    console.log(scHeight)
+    convert_text.style.height = `${scHeight}px`
+})
+
 // speech recognition
-speachbtn.addEventListener('click', () => 
+speechbtn.addEventListener('click', () => 
 {
     var speech = true;
     window.SpeechRecognition = window.webkitSpeechRecognition;
@@ -33,6 +44,8 @@ speachbtn.addEventListener('click', () =>
         convert_text.innerHTML = transcript;
         
     })
+
+    
 
     if(speech == true) 
     {
@@ -78,7 +91,7 @@ function loader(element) {
         if (element.textContent === '██') {
             element.textContent = '';
         }
-    }, 300);
+    }, 100);
 }
 // loading while ai comes up with an answer
 
@@ -128,32 +141,43 @@ function chatStripe(isAi, value, uniqueId) {
 }
 
 
-const handleSubmit = async (e) => {
-    e.preventDefault()
 
-    const data = new FormData(form)
-    
+
+const previousEnquiries = [];
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    document.body.scrollTo(0, document.body.scrollHeight);
+
+
+    convert_text.style.height = 'auto'
+
+    const data = new FormData(form);
+
+    // Save the user's prompt to the previousEnquiries array
+    const prompt = data.get('prompt');
+    previousEnquiries.push(prompt);
 
     // user's chatstripe
-    chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
-    
+    chatContainer.innerHTML += chatStripe(false, prompt);
 
-    // to clear the textarea input 
-    form.reset()
-    
+    // to clear the textarea input
+    form.reset();
 
     // bot's chatstripe
-    const uniqueId = generateUniqueId()
-    chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+    const uniqueId = generateUniqueId();
+    chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
 
-    chatContainer.scrollTop = chatContainer.scrollHeight
+    // Scroll to the bottom of the chat container
+
     del.innerHTML = '';
 
-    // specific message div 
-    const messageDiv = document.getElementById(uniqueId)
+    // specific message div
+    const messageDiv = document.getElementById(uniqueId);
 
     // messageDiv.innerHTML = ""
-    loader(messageDiv)
+    loader(messageDiv);
 
     const response = await fetch('https://ai-cohort.onrender.com', {
         method: 'POST',
@@ -161,24 +185,27 @@ const handleSubmit = async (e) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            prompt: data.get('prompt')
+            prompt: prompt,
+            previousEnquiries: previousEnquiries.slice(-3), // Pass the last 3 enquires to the server
         })
-    })
+    });
 
-    clearInterval(loadInterval)
-    messageDiv.innerHTML = " "
+    clearInterval(loadInterval);
+    messageDiv.innerHTML = " ";
 
     if (response.ok) {
         const data = await response.json();
-        const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+        const parsedData = data.bot.trim(); // trims any trailing spaces/'\n' 
 
-        typeText(messageDiv, parsedData)
+        typeText(messageDiv, parsedData);
     } else {
-        const err = await response.text()
+        const err = await response.text();
 
-        messageDiv.innerHTML = `<p class="errorMessage">Oops! Something doesn't seem right here. Either your prompt is too long or your internet connection is the issue. Try prompting shorter texts or checking your internet connection!</p>`
+        messageDiv.innerHTML = `<p class="errorMessage">Oops! Something doesn't seem right here. Either your prompt is too long or your internet connection is the issue. Try prompting shorter texts or checking your internet connection!</p>`;
     }
-}
+};
+
+
 
 reset.addEventListener('click', () => {
     chatContainer.innerHTML = ''

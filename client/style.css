@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Robotmo:wght@100&display=swap');
+
 
 :root 
 {
@@ -150,12 +150,13 @@ body.active
 .header .navbar button i 
 {
   margin-right: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .header .navbar a i 
 {
   margin-right: .5rem;
+  font-size: 1.2rem;
 }
 
 .header .navbar button:hover 
@@ -224,7 +225,7 @@ body.active
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 
@@ -237,7 +238,8 @@ body.active
   width: 100%;
   margin-bottom: 20rem;
   overflow-y: auto;
-  height: 70vh;
+  height: 100%;
+  overflow-x: visible;
   scroll-behavior: smooth;  
 }
 .chat {
@@ -321,8 +323,9 @@ textarea {
   background: transparent;
   border: none;
   outline: none;
-  resize: vertical;
+  resize: none;
   overflow: auto;
+  max-height: 200px;
 }
 
 .wrapper {
@@ -334,6 +337,7 @@ textarea::-webkit-scrollbar {
   width: .8rem;
 }
 
+
 textarea::-webkit-scrollbar-track {
   background: transparent;
 }
@@ -341,6 +345,10 @@ textarea::-webkit-scrollbar-track {
 textarea::-webkit-scrollbar-thumb {
   background: #7c7c7c;
   border-radius: 5rem;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #ebebeb;
 }
 
 textarea::placeholder
@@ -371,7 +379,7 @@ form img:hover {
 
 #click_to_convert i
 {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   cursor: pointer;
   color: #999;
   padding: .8rem;
@@ -403,7 +411,7 @@ form img:hover {
 
 #starter
 {
-  position: absolute;
+  position: relative;
   top: 2%;
   margin: auto 20rem;
 }
@@ -418,6 +426,14 @@ form img:hover {
 {
   color: var(--text-color);
   font-size: 4rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  font-weight: 100;
+}
+#starter h3
+{
+  color: var(--text-color);
+  font-size: 2rem;
   text-align: center;
   padding-bottom: 1rem;
   font-weight: 100;
@@ -501,9 +517,8 @@ form img:hover {
 
 #starter
 {
-  position: absolute;
-  top: 50px;
   margin: auto 5rem;
+  top: 70px;
 }
 
 }
@@ -532,7 +547,7 @@ form img:hover {
   .header.active 
   {
     left: 0%;
-    transition: .4s linear;
+    transition: .1s linear;
     width: 100vw;
   }
 
@@ -560,7 +575,7 @@ form img:hover {
   .reset-btn
   {
     position: fixed;
-    height: 40px;
+    height: 45px;
     width: 100%;
     background: #202123;
     z-index: 500;

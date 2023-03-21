@@ -28,13 +28,14 @@ app.post('/', async (req, res) => {
     const response = await openai.createCompletion({ //This line initiates the creation of a completion using OpenAI. 
       model: "text-davinci-003",
       prompt: `${prompt}`,
-      temperature: 0.9,
-      max_tokens: 3583,
+      temperature: 1,
+      max_tokens: 3000,
       top_p: 1,
       frequency_penalty: .5,
       presence_penalty: 0.6,
-      stop: [" Human:", " AI:"],
       }); 
+
+      console.log(response);
 
     res.status(200).send({
       bot: response.data.choices[0].text
