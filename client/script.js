@@ -179,7 +179,10 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = ""
     loader(messageDiv);
 
-    const response = await fetch('https://ai-cohort.onrender.com', {
+    let localhost = 'http://localhost:5000'
+    let webServer = 'https://ai-cohort.onrender.com'
+
+    const response = await fetch(localhost, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -213,6 +216,7 @@ reset.addEventListener('click', () => {
 
 resetbtn.addEventListener('click', () => {
     chatContainer.innerHTML = ''
+
 })
 
 form.addEventListener('submit', handleSubmit)
