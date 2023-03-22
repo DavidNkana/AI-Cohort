@@ -182,7 +182,7 @@ const handleSubmit = async (e) => {
     let localhost = 'http://localhost:5000'
     let webServer = 'https://ai-cohort.onrender.com'
 
-    const response = await fetch(webServer, {
+    const response = await fetch('https://ai-cohort.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
